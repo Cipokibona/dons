@@ -1,0 +1,17 @@
+@if(!endQuestion){
+    <h2>Question {{question}}</h2>
+    <p class="fs-3">{{data[idListDon].questions[idQuestion]}}</p>
+    <p>
+        <button type="button" class="btn btn-light" (click)="onJamais()">Jamais</button>
+        <button type="button" class="btn btn-light" (click)="onRarement()">Rarement</button>
+        <button type="button" class="btn btn-light" (click)="onParfois()">Parfois</button>
+        <button type="button" class="btn btn-light" (click)="onSouvent()">Souvent</button>
+        <button type="button" class="btn btn-light" (click)="onToujours()">Toujours</button>
+    </p>
+}@else {
+    @for(don of donDominants; track don.id){
+        <h2>Vous avez comme don: "{{ don.nonDon }}"</h2>
+        <p>{{ don.description }}</p>
+    }
+    <button type="button" class="btn btn-primary" (click)="recommencer()">Recommencer</button>
+}
